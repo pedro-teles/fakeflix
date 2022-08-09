@@ -1,0 +1,19 @@
+name: Clojure Checks
+
+on:
+  push:
+    paths: "services/**"
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: oxr463/setup-leiningen@0.0.1
+      - run: sh $GITHUB_WORKSPACE/bin/clojure-checks-tests.sh
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: oxr463/setup-leiningen@0.0.1
+      - run: sh $GITHUB_WORKSPACE/bin/clojure-checks-lint.sh
