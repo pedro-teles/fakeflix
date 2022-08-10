@@ -1,4 +1,4 @@
-# diplomat-architecture-template
+# scout
 
 A Clojure library designed to ... well, that part is up to you.
 
