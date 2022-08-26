@@ -1,11 +1,9 @@
 (ns scout.config
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io]
-            [scout.diplomat.consumer :as consumer]
             [org.httpkit.client]
             [org.httpkit.sni-client :as sni-client])
-  (:import (java.time Duration)
-           (org.apache.kafka.clients.admin AdminClientConfig KafkaAdminClient NewTopic)
+  (:import (org.apache.kafka.clients.admin AdminClientConfig KafkaAdminClient NewTopic)
            (org.apache.kafka.clients.consumer KafkaConsumer)
            (org.apache.kafka.clients.producer KafkaProducer)
            (org.apache.kafka.common.serialization StringDeserializer StringSerializer)))
@@ -66,20 +64,17 @@
 
 (defn start-kafka
   []
-  (let [consumer (build-consumer)
-        topics (into (mapv topic producers) (mapv topic consumers))]
-    (create-topic! topics 1 1)
-    (consumer-subscribe consumer (mapv topic consumers))
-    (.start (Thread. (fn []
-                       (while true
-                         (let [records (.poll consumer (Duration/ofMillis 100))]
-                           (doseq [record records]
-                             (let [topic (->> consumers
-                                              (filter #(= (first (vals %)) (.topic record)))
-                                              first
-                                              keys
-                                              first)
-                                   handler-fn (get consumer/topics topic)]
-                               (handler-fn (.value record)))))))))))
+  (let [topics (into (mapv topic producers) (mapv topic consumers))]
+    (create-topic! topics 1 1)))
+
+(defn worker
+  [fn n]
+  (while true
+    (fn)
+    (Thread/sleep (* n (* 1000 60)))))
+
+(defn start-worker
+  [worker-fn every-n-minutes]
+  (future (worker worker-fn every-n-minutes)))
 
 (alter-var-root #'org.httpkit.client/*default-client* (fn [_] sni-client/default-client))

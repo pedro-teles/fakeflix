@@ -12,4 +12,4 @@
 
 (defn produce!
   [message topic]
-  (.send config/producer (ProducerRecord. (get-topic topic) (str (Uuid/randomUuid)) message)))
+  (.send config/producer (ProducerRecord. (get-topic topic) (str (Uuid/randomUuid)) (str message))))
