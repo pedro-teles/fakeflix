@@ -1,0 +1,3 @@
+{:topics {:producers [{:film-received "FILM-RECEIVED"}]
+          :consumers []}
+ :services {:movies-db "https://api.themoviedb.org/3"}}
