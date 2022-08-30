@@ -1,0 +1,3 @@
+{:application-name "template"
+ :topics           {:producers []
+                    :consumers [{:film-received "FILM-RECEIVED"}]}}
