@@ -12,7 +12,7 @@
                  :title         "Film Title"
                  :overview      "Film Overview"
                  :release-date  "2022-08-26"
-                 :vote-average  4.90}
+                 :vote-average  5.0}
                 (adapters.film/in->model fixtures/wire-in-film))))
 
   (testing "Should adapt in->model* correctly"
@@ -22,14 +22,14 @@
                   :title         "Film Title"
                   :overview      "Film Overview"
                   :release-date  "2022-08-26"
-                  :vote-average  4.90}
+                  :vote-average  5.0}
                  {:external-id   2
                   :backdrop-path "another_backdro_path"
                   :poster-path   "another_post_path"
                   :title         "Another Film Title"
                   :overview      "Another Film Overview"
                   :release-date  "2022-06-15"
-                  :vote-average  3.29}]
+                  :vote-average  3.0}]
                 (adapters.film/in->model* fixtures/wire-in))))
 
   (testing "Should adapter model->out correctly"
@@ -39,5 +39,5 @@
                  :title         "Film Title"
                  :overview      "Film Overview"
                  :release-date  "2022-08-26"
-                 :vote-average  4.90}
+                 :vote-average  5.0}
                 (adapters.film/model->out fixtures/model)))))

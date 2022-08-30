@@ -9,7 +9,7 @@
 
 (config/start-kafka)
 
-(config/start-worker controllers.movie/find-films! 1)
+(config/start-worker controllers.movie/find-films! 10)
 
 (http/start
  (http/create-server server/service-map))

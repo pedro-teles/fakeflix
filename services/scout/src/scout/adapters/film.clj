@@ -12,7 +12,7 @@
    :title         title
    :overview      overview
    :release-date  release_date
-   :vote-average  vote_average})
+   :vote-average  (float vote_average)})
 
 (s/defn in->model* :- [models.film/Film]
   [{:keys [results]} :- in.flm/FilmEnvelope]
