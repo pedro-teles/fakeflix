@@ -1,7 +1,7 @@
 (ns steven-spielberg.adapters.film-test
-  (:require [clojure.test :refer [deftest testing is]]
-            [steven-spielberg.adapters.film :as adapters.film]
+  (:require [clojure.test :refer [deftest is testing]]
             [matcher-combinators.test :refer [match?]]
+            [steven-spielberg.adapters.film :as adapters.film]
             [steven-spielberg.fixtures.film :as fixtures.film]))
 
 (deftest in->model-test

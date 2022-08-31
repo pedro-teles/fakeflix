@@ -1,8 +1,8 @@
 (ns steven-spielberg.logic.film-test
-  (:require [clojure.test :refer [deftest testing is]]
-            [steven-spielberg.logic.film :as logic.film]
+  (:require [clojure.test :refer [deftest is testing]]
             [matcher-combinators.test :refer [match?]]
-            [steven-spielberg.fixtures.film :as fixtures.film]))
+            [steven-spielberg.fixtures.film :as fixtures.film]
+            [steven-spielberg.logic.film :as logic.film]))
 
 (deftest generate-film-id-test
   (testing "Should generate different UUIDs for different films"
