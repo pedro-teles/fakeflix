@@ -6,6 +6,7 @@
 
 (s/defn find-films!
   []
-  (let [films (http-client/discover-films! 1)]
-    (doseq [film films]
-      (producer/film-received! (adapters.film/model->out film)))))
+  (dotimes [n 10]
+    (let [films (http-client/discover-films! (inc n))]
+      (doseq [film films]
+        (producer/film-received! (adapters.film/model->out film))))))

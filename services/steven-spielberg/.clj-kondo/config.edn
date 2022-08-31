@@ -1,0 +1,3 @@
+{:lint-as {org.httpkit.client/defreq clojure.core/def}
+ :clean {:automatically-after-ns-refactor true
+         :ns-inner-blocks-indentation :same-line}}
