@@ -13,6 +13,7 @@
                  [io.pedestal/pedestal.jetty "0.5.10"]
                  [org.apache.kafka/kafka-clients "3.1.0"]
                  [org.apache.kafka/kafka_2.12 "3.1.0"]
+                 [org.clojars.pedroso/fakeflix-schema "1.0.1"]
                  [nubank/matcher-combinators "3.5.1"]
                  [http-kit "2.6.0"]
                  [com.datomic/datomic-free "0.9.5697"]]
