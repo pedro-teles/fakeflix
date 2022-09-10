@@ -1,4 +1,4 @@
 {:lint-as {org.httpkit.client/defreq clojure.core/def}
- :linters {:missing-else-branch           {:level :off}}
+ :linters {:missing-else-branch {:level :off}}
  :clean   {:automatically-after-ns-refactor true
            :ns-inner-blocks-indentation     :same-line}}
