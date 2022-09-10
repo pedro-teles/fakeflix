@@ -14,7 +14,7 @@
                  [org.apache.kafka/kafka-clients "3.1.0"]
                  [org.apache.kafka/kafka_2.12 "3.1.0"]
                  [org.clojars.pedroso/fakeflix-kafka "1.0.1"]
-                 [org.clojars.pedroso/fakeflix-datomic "1.1.0-SNAPSHOT"]
+                 [org.clojars.pedroso/fakeflix-datomic "1.1.0"]
                  [org.clojars.pedroso/fakeflix-schema "1.0.0"]
                  [http-kit "2.6.0"]
                  [com.datomic/datomic-free "0.9.5697"]]
