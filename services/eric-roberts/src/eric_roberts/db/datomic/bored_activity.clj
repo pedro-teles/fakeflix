@@ -9,5 +9,5 @@
 
 (s/defn find-all-activities! :- [m.bored-activity/BoredActivity]
   []
-  (datomic/find-entities! '[:find (pull ?activity [*])
-                            :where [?activity :bored-activity/activity _]]))
+  (datomic/entities '[:find (pull ?activity [*])
+                      :where [?activity :bored-activity/activity _]]))

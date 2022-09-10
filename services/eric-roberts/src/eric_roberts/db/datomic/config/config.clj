@@ -1,4 +1,4 @@
 (ns eric-roberts.db.datomic.config.config
-  (:require [eric-roberts.models.bored-activity :as models.bored-activity]))
+  (:require [eric-roberts.models.person :as models.person]))
 
-(def schemas [models.bored-activity/BoredActivity])
+(def schemas [models.person/Person])
