@@ -32,7 +32,7 @@
                   :vote-average  3.0}]
                 (adapters.film/in->model* fixtures/wire-in))))
 
-  (testing "Should adapter model->out correctly"
+  (testing "Should adapt model->out correctly"
     (is (match? {:external-id   1
                  :backdrop-path "backdro_path"
                  :poster-path   "post_path"

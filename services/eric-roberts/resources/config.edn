@@ -1,0 +1,3 @@
+{:application-name "eric-roberts"
+ :topics           {:producers []
+                    :consumers [{:new-person "PERSON.NEW-PERSON"}]}}
