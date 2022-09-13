@@ -1,0 +1,4 @@
+{:application-name "minions"
+ :topics           {:producers [{:new-minion "USER.NEW-MINION"}]
+                    :consumers []}
+ :services         {:faker "https://fakerapi.it/api/v1"}}
