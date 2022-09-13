@@ -1,15 +1,19 @@
 (ns minions.diplomat.http-client
   (:require [clojure.data.json :as json]
-            [minions.adapters.bored-activity :as a.bored-activity]
-            [minions.models.bored-activity :as m.bored-activity]
+            [minions.models.minion :as models.minion]
+            [minions.adapters.minion :as adapters.minion]
+            [minions.config.project :as config]
             [org.httpkit.client :as http]
             [schema.core :as s]))
 
-(def urls {:find-bored-activities "https://www.boredapi.com/api/activity"})
+(def urls {:users "/users"})
 
-(s/defn find-bored-activities! :- m.bored-activity/BoredActivityData
+(s/defn fetch-minion :- models.minion/Minion
   []
-  (let [response @(http/get (:find-bored-activities urls))
+  (let [response  @(http/get (str (:faker (:services config/config-file)) (:users urls))
+                     {:query-params {:_quantity 1}})
         json-body (:body response)
-        result (json/read-str json-body :key-fn keyword)]
-    (a.bored-activity/in->internal result)))
+        result    (-> (json/read-str json-body :key-fn keyword)
+                    :data
+                    first)]
+    (adapters.minion/user->minion result)))

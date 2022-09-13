@@ -1,6 +1,6 @@
 (ns minions.diplomat.producer
   (:require [fakeflix-kafka.producer :as producer]))
 
-(defn produce-greeting!
+(defn produce-minion!
   [message]
-  (producer/produce! message :greeting))
+  (producer/produce! (str message) :new-minion))
