@@ -1,6 +1,6 @@
 (ns minions.wire.in.user
-  (:require [schema.core :as s]
-            [fakeflix-schema.schema :as schema]))
+  (:require [fakeflix-schema.schema :as schema]
+            [schema.core :as s]))
 
 (def user-skeleton {:uuid      {:schema s/Str :required true}
                     :firstname {:schema s/Str :required true}

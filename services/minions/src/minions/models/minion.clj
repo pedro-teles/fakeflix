@@ -1,6 +1,6 @@
 (ns minions.models.minion
-  (:require [schema.core :as s]
-            [fakeflix-schema.schema :as schema]))
+  (:require [fakeflix-schema.schema :as schema]
+            [schema.core :as s]))
 
 (def minion-skeleton {:customer-id {:schema s/Str :required true :doc "Fake minion id"}
                       :name        {:schema s/Str :required true :doc "Fake minion name"}

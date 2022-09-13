@@ -1,9 +1,9 @@
 (ns minions.controllers.minion
-  (:require [schema.core :as s]
+  (:require [minions.adapters.minion :as adapters.minion]
             [minions.diplomat.http-client :as client]
-            [minions.adapters.minion :as adapters.minion]
             [minions.diplomat.producer :as producer]
-            [minions.logic.minion :as logic.minion]))
+            [minions.logic.minion :as logic.minion]
+            [schema.core :as s]))
 
 (s/defn minion-data
   []

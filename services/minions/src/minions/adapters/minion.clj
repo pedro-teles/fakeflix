@@ -1,9 +1,9 @@
 (ns minions.adapters.minion
-  (:require [schema.core :as s]
+  (:require [clojure.string :as str]
+            [minions.models.minion :as models.minion]
             [minions.wire.in.user :as in.user]
             [minions.wire.out.minion :as out.minion]
-            [clojure.string :as str]
-            [minions.models.minion :as models.minion]))
+            [schema.core :as s]))
 
 (s/defn user->minion :- models.minion/Minion
   [{:keys [uuid firstname lastname]} :- in.user/User]
@@ -25,8 +25,8 @@
   [minion :- models.minion/Minion
    password :- s/Str]
   (-> minion
-    (select-keys [:customer-id
-                  :name
-                  :last-name
-                  :email])
-    (assoc :password password)))
+      (select-keys [:customer-id
+                    :name
+                    :last-name
+                    :email])
+      (assoc :password password)))
