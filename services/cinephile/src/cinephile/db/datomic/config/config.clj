@@ -1,4 +1,4 @@
 (ns cinephile.db.datomic.config.config
-  (:require [cinephile.models.bored-activity :as models.bored-activity]))
+  (:require [cinephile.models.cinephile :as models.cinephile]))
 
-(def schemas [models.bored-activity/BoredActivity])
+(def schemas [models.cinephile/Cinephile])
