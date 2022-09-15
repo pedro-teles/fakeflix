@@ -1,7 +1,7 @@
 (ns cinephile.diplomat.http-client
-  (:require [clojure.data.json :as json]
-            [cinephile.adapters.bored-activity :as a.bored-activity]
+  (:require [cinephile.adapters.bored-activity :as a.bored-activity]
             [cinephile.models.bored-activity :as m.bored-activity]
+            [clojure.data.json :as json]
             [org.httpkit.client :as http]
             [schema.core :as s]))
 

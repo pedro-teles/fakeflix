@@ -1,6 +1,6 @@
 (ns cinephile.wire.in.minion
-  (:require [schema.core :as s]
-            [fakeflix-schema.schema :as schema]))
+  (:require [fakeflix-schema.schema :as schema]
+            [schema.core :as s]))
 
 (def minion-envelope-skeleton {:customer-id {:schema s/Str :required true}
                                :name        {:schema s/Str :required true}

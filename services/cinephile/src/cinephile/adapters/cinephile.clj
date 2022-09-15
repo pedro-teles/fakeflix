@@ -1,7 +1,7 @@
 (ns cinephile.adapters.cinephile
-  (:require [schema.core :as s]
+  (:require [cinephile.models.cinephile :as models.cinephile]
             [cinephile.wire.in.minion :as in.minion]
-            [cinephile.models.cinephile :as models.cinephile])
+            [schema.core :as s])
   (:import [java.util UUID]))
 
 (s/defn minion->cinephile :- models.cinephile/Cinephile

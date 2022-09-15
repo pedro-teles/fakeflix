@@ -1,6 +1,6 @@
 (ns cinephile.models.cinephile
-  (:require [schema.core :as s]
-            [fakeflix-schema.schema :as schema]))
+  (:require [fakeflix-schema.schema :as schema]
+            [schema.core :as s]))
 
 (def cinephile-skeleton {:cinephile/customer-id {:schema s/Uuid :required true :doc "Cinephile id"}
                          :cinephile/name        {:schema s/Str :required true :doc "Cinephile name"}

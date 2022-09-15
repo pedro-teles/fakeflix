@@ -1,7 +1,7 @@
 (ns cinephile.config.project
-  (:require [clojure.edn :as edn]
+  (:require [cinephile.diplomat.consumer :as diplomat.consumer]
+            [clojure.edn :as edn]
             [clojure.java.io :as io]
-            [cinephile.diplomat.consumer :as diplomat.consumer]
             [org.httpkit.client]
             [org.httpkit.sni-client :as sni-client]))
 
