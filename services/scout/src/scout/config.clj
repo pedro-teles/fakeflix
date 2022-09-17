@@ -70,7 +70,9 @@
 (defn worker
   [fn n]
   (while true
-    (fn)
+    (try
+      (fn)
+      (catch Exception e (println e)))
     (Thread/sleep (* n (* 1000 60)))))
 
 (defn start-worker
