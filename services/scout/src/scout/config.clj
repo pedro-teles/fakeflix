@@ -10,7 +10,7 @@
 
 (def application-name "scout")
 
-(def kafka-server "localhost:9092")
+(def kafka-server (if (System/getenv "KAFKA_SERVER") (System/getenv "KAFKA_SERVER") "localhost:9092"))
 
 (def config-file-name "config.edn")
 

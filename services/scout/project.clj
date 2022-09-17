@@ -24,4 +24,7 @@
             "clean-ns-fix" ["clojure-lsp" "clean-ns"]
             "lint"         ["do" ["diagnostics"] ["format"] ["clean-ns"]]
             "lint-fix"     ["do" ["format-fix"] ["clean-ns-fix"]]}
-  :repl-options {:init-ns scout.core})
+  :profiles {:uberjar {:aot :all}}
+  :main scout.core
+  :repl-options {:init-ns scout.core}
+  :uberjar-name "scout-standalone.jar")
