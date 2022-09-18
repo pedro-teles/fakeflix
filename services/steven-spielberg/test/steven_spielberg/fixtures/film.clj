@@ -15,3 +15,12 @@
             :film/overview      "A film about testing stuff"
             :film/release-date  "2022-08-31"
             :film/vote-average  5.0})
+
+(def model-list [model
+                 {:film/external-id   2
+                  :film/backdrop-path "backdrop_path"
+                  :film/poster-path   "poster_path"
+                  :film/title         "Unit Test"
+                  :film/overview      "A film about testing stuff"
+                  :film/release-date  "2022-08-31"
+                  :film/vote-average  5.0}])

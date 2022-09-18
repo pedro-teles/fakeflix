@@ -26,4 +26,7 @@
             "clean-ns-fix" ["clojure-lsp" "clean-ns"]
             "lint"         ["do" ["diagnostics"] ["format"] ["clean-ns"]]
             "lint-fix"     ["do" ["format-fix"] ["clean-ns-fix"]]}
-  :repl-options {:init-ns steven-spielberg.core})
+  :profiles {:uberjar {:aot :all}}
+  :main steven-spielberg.core
+  :repl-options {:init-ns steven-spielberg.core}
+  :uberjar-name "steven-spielberg-standalone.jar")

@@ -14,3 +14,10 @@
                  :film/release-date "2022-08-31"
                  :film/vote-average 5.0}
                 (adapters.film/in->model fixtures.film/wire-in)))))
+
+(deftest model*->out-test
+  (testing "Should adapt model*->out correctly"
+    (is (match? {:results 2
+                 :films [some?
+                         some?]}
+                (adapters.film/model*->out fixtures.film/model-list)))))

@@ -1,7 +1,8 @@
 (ns steven-spielberg.adapters.film
   (:require [schema.core :as s]
             [steven-spielberg.models.film :as models.film]
-            [steven-spielberg.wire.in.film :as in.film]))
+            [steven-spielberg.wire.in.film :as in.film]
+            [steven-spielberg.wire.out.film :as out.film]))
 
 (s/defn in->model :- models.film/FilmEnvelope
   [{:keys [external-id backdrop-path poster-path
@@ -13,3 +14,8 @@
          :overview      overview
          :release-date  release-date
          :vote-average  vote-average})
+
+(s/defn model*->out :- out.film/FilmEnvelope
+  [films :- [models.film/Film]]
+  {:results (count films)
+   :films films})
