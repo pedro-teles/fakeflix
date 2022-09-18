@@ -20,3 +20,8 @@
   (let [existing (find-by-id customer-id)]
     (if (nil? existing)
       (insert! cinephile))))
+
+(s/defn fetch-all-cinephiles :- [models.cinephile/Cinephile]
+  []
+  (db/entities '[:find (pull ?cinephile [*])
+                 :where [?cinephile :cinephile/customer-id ?id]]))

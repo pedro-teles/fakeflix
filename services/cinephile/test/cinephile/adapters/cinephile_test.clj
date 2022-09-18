@@ -12,3 +12,10 @@
                  :cinephile/email       "unit.mctest@fakeflix.com"
                  :cinephile/password    "123456"}
                 (adapters.cinephile/minion->cinephile fixtures/wire-in)))))
+
+(deftest model*->out-test
+  (testing "Should adapt model*->out correctly"
+    (is (match? {:results 2
+                 :cinephiles [some?
+                              some?]}
+                (adapters.cinephile/model*->out fixtures/model-list)))))
