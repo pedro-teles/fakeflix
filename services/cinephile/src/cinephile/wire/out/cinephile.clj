@@ -1,7 +1,7 @@
 (ns cinephile.wire.out.cinephile
   (:require [cinephile.models.cinephile :as models.cinephile]
-            [schema.core :as s]
-            [fakeflix-schema.schema :as schema]))
+            [fakeflix-schema.schema :as schema]
+            [schema.core :as s]))
 
 (s/defschema Cinephile (schema/strict-schema models.cinephile/cinephile-skeleton))
 

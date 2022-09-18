@@ -2,9 +2,9 @@
   (:require [io.pedestal.http :as http]
             [io.pedestal.http.route :as route]
             [schema.core :as s]
+            [steven-spielberg.adapters.film :as adapters.film]
             [steven-spielberg.config.project :as config.project]
             [steven-spielberg.controllers.film :as controllers.film]
-            [steven-spielberg.adapters.film :as adapters.film]
             [steven-spielberg.interceptors :refer [handle]]))
 
 (s/defn api-version-handler

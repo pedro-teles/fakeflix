@@ -1,7 +1,7 @@
 (ns eric-roberts.wire.out.person
   (:require [eric-roberts.models.person :as models.person]
-            [schema.core :as s]
-            [fakeflix-schema.schema :as schema]))
+            [fakeflix-schema.schema :as schema]
+            [schema.core :as s]))
 
 (s/defschema Person (schema/strict-schema models.person/person-skeleton))
 

@@ -1,10 +1,10 @@
 (ns eric-roberts.diplomat.http-server
-  (:require [eric-roberts.config.project :as config.project]
+  (:require [eric-roberts.adapters.person :as adapters.person]
+            [eric-roberts.config.project :as config.project]
+            [eric-roberts.controllers.person :as controllers.person]
             [eric-roberts.interceptors :refer [handle]]
             [io.pedestal.http :as http]
             [io.pedestal.http.route :as route]
-            [eric-roberts.controllers.person :as controllers.person]
-            [eric-roberts.adapters.person :as adapters.person]
             [schema.core :as s]))
 
 (s/defn api-version-handler

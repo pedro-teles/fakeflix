@@ -1,6 +1,6 @@
 (ns steven-spielberg.wire.out.film
-  (:require [schema.core :as s]
-            [fakeflix-schema.schema :as schema]
+  (:require [fakeflix-schema.schema :as schema]
+            [schema.core :as s]
             [steven-spielberg.models.film :as models.film]))
 
 (s/defschema Film (schema/strict-schema models.film/film-skeleton))

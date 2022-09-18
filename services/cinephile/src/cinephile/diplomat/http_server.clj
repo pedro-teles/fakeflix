@@ -1,10 +1,10 @@
 (ns cinephile.diplomat.http-server
-  (:require [cinephile.config.project :as config.project]
+  (:require [cinephile.adapters.cinephile :as adapters.cinephile]
+            [cinephile.config.project :as config.project]
+            [cinephile.controllers.cinephile :as controllers.cinephile]
             [cinephile.interceptors :refer [handle]]
             [io.pedestal.http :as http]
             [io.pedestal.http.route :as route]
-            [cinephile.controllers.cinephile :as controllers.cinephile]
-            [cinephile.adapters.cinephile :as adapters.cinephile]
             [schema.core :as s]))
 
 (s/defn api-version-handler

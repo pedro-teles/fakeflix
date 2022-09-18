@@ -16,4 +16,4 @@
   (config.kafka/start-kafka (System/getenv "KAFKA_SERVER") config.project/application-name config.project/consumer-topics config.project/producer-topics)
 
   (http/start
-    (http/create-server server/service-map)))
+   (http/create-server server/service-map)))
