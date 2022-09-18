@@ -25,4 +25,7 @@
             "clean-ns-fix" ["clojure-lsp" "clean-ns"]
             "lint"         ["do" ["diagnostics"] ["format"] ["clean-ns"]]
             "lint-fix"     ["do" ["format-fix"] ["clean-ns-fix"]]}
-  :repl-options {:init-ns cinephile.core})
+  :profiles {:uberjar {:aot :all}}
+  :main cinephile.core
+  :repl-options {:init-ns cinephile.core}
+  :uberjar-name "cinephile-standalone.jar")

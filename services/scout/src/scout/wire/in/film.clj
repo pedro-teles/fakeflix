@@ -2,7 +2,7 @@
   (:require [schema.core :as s]))
 
 (def film-skeleton {:id            s/Int
-                    :backdrop_path s/Str
+                    :backdrop_path (s/maybe s/Str)
                     :poster_path   s/Str
                     :title         s/Str
                     :overview      s/Str

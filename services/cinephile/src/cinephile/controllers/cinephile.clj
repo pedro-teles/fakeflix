@@ -6,3 +6,7 @@
 (s/defn new-minion!
   [cinephile :- models.cinephile/Cinephile]
   (db/insert-if-not-exists! cinephile))
+
+(s/defn fetch-all-cinephiles :- [models.cinephile/Cinephile]
+  []
+  (db/fetch-all-cinephiles))

@@ -8,3 +8,7 @@
   [film :- models.film/FilmEnvelope]
   (let [film-with-id (logic.film/associate-id film)]
     (db.film/insert-film! film-with-id)))
+
+(s/defn fetch-all-films :- [models.film/Film]
+  []
+  (db.film/fetch-all-films))

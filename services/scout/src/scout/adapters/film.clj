@@ -7,7 +7,7 @@
 (s/defn in->model :- models.film/Film
   [{:keys [id backdrop_path poster_path title overview release_date vote_average]} :- in.flm/Film]
   {:external-id   id
-   :backdrop-path backdrop_path
+   :backdrop-path (if backdrop_path backdrop_path "")
    :poster-path   poster_path
    :title         title
    :overview      overview

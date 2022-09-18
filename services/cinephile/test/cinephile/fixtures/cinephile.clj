@@ -10,3 +10,6 @@
             :cinephile/last-name   "McTest"
             :cinephile/email       "unit.mctest@fakeflix.com"
             :cinephile/password    "123456"})
+
+(def model-list [model
+                 model])

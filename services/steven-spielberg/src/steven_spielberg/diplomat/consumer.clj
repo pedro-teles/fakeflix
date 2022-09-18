@@ -3,11 +3,11 @@
             [steven-spielberg.adapters.film :as adapters.film]
             [steven-spielberg.controllers.film :as controllers.film]))
 
-(defn film-received-handler!
+(defn new-film-handler!
   [message]
   (-> message
       edn/read-string
       adapters.film/in->model
       controllers.film/film-received!))
 
-(def topics {:film-received film-received-handler!})
+(def topics {:new-film new-film-handler!})

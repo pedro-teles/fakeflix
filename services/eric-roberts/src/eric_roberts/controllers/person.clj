@@ -9,3 +9,7 @@
   (-> person
       logic.person/associate-id
       db.person/insert-if-not-exists!))
+
+(s/defn fetch-all-persons :- [models.person/Person]
+  []
+  (db.person/fetch-all-persons))

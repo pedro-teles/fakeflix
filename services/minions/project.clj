@@ -25,4 +25,7 @@
             "clean-ns-fix" ["clojure-lsp" "clean-ns"]
             "lint"         ["do" ["diagnostics"] ["format"] ["clean-ns"]]
             "lint-fix"     ["do" ["format-fix"] ["clean-ns-fix"]]}
-  :repl-options {:init-ns minions.core})
+  :profiles {:uberjar {:aot :all}}
+  :main minions.core
+  :repl-options {:init-ns minions.core}
+  :uberjar-name "minions-standalone.jar")
