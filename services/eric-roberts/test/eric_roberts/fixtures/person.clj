@@ -8,3 +8,9 @@
             :person/external-id 1
             :person/name        "Unit Test"
             :person/biography   "Unit testing"})
+
+(def model-list [model
+                 {:person/id          #uuid "c0dd92fa-e923-41b5-afc3-f202fce686d5"
+                  :person/external-id 2
+                  :person/name        "Unit Test"
+                  :person/biography   "Unit testing"}])

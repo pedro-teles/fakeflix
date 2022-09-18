@@ -20,3 +20,8 @@
   (let [existing (find-by-id id)]
     (if (nil? existing)
       (insert! person))))
+
+(s/defn fetch-all-persons
+  []
+  (db/entities '[:find (pull ?person [*])
+                 :where [?person :person/id ?id]]))

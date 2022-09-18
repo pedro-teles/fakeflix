@@ -25,4 +25,7 @@
             "clean-ns-fix" ["clojure-lsp" "clean-ns"]
             "lint"         ["do" ["diagnostics"] ["format"] ["clean-ns"]]
             "lint-fix"     ["do" ["format-fix"] ["clean-ns-fix"]]}
-  :repl-options {:init-ns eric-roberts.core})
+  :profiles {:uberjar {:aot :all}}
+  :main eric-roberts.core
+  :repl-options {:init-ns eric-roberts.core}
+  :uberjar-name "eric-roberts-standalone.jar")
