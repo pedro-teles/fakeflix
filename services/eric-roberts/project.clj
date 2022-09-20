@@ -11,7 +11,7 @@
                  [io.pedestal/pedestal.route "0.5.10"]
                  [io.pedestal/pedestal.jetty "0.5.10"]
                  [nubank/matcher-combinators "3.5.1"]
-                 [org.clojars.pedroso/fakeflix-kafka "1.0.2-SNAPSHOT"]
+                 [org.clojars.pedroso/fakeflix-kafka "1.0.2"]
                  [org.clojars.pedroso/fakeflix-datomic "1.1.0"]
                  [org.clojars.pedroso/fakeflix-schema "1.0.1"]
                  [http-kit "2.6.0"]]
