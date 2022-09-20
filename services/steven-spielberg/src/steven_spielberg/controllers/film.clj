@@ -4,11 +4,12 @@
             [steven-spielberg.logic.film :as logic.film]
             [steven-spielberg.models.film :as models.film]))
 
-(s/defn film-received!
+(s/defn new-film!
   [film :- models.film/FilmEnvelope]
-  (let [film-with-id (logic.film/associate-id film)]
-    (db.film/insert-film! film-with-id)))
+  (-> film
+      logic.film/associate-id
+      db.film/insert-if-not-exists!))
 
 (s/defn fetch-all-films :- [models.film/Film]
   []
-  (db.film/fetch-all-films))
+  (db.film/fetch-all))
