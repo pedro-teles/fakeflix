@@ -8,6 +8,6 @@
   (-> message
       edn/read-string
       adapters.film/in->model
-      controllers.film/film-received!))
+      controllers.film/new-film!))
 
 (def topics {:new-film new-film-handler!})
