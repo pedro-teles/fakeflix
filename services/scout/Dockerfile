@@ -1,4 +1,4 @@
-FROM openjdk
+FROM amazoncorretto:11.0.16
 
 RUN mkdir -p /app
 WORKDIR /app
