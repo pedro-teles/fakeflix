@@ -1,0 +1,7 @@
+FROM arm64v8/amazoncorretto:11.0.16
+
+COPY steven-spielberg-standalone.jar .
+
+EXPOSE 8080
+
+CMD java -jar steven-spielberg-standalone.jar

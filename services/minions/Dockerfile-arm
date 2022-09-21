@@ -1,0 +1,7 @@
+FROM arm64v8/amazoncorretto:11.0.16
+
+COPY minions-standalone.jar .
+
+EXPOSE 8080
+
+CMD java -jar minions-standalone.jar
