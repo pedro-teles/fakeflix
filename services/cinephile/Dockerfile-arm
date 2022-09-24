@@ -1,7 +1,4 @@
-FROM amazoncorretto:11.0.16
-
-RUN mkdir -p /app
-WORKDIR /app
+FROM arm64v8/amazoncorretto:11.0.16
 
 COPY cinephile-standalone.jar .
 

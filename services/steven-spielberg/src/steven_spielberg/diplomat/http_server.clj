@@ -29,6 +29,7 @@
       :route-name :admin-films]}))
 
 (def service-map {::http/routes routes
+                  ::http/host   "0.0.0.0"
                   ::http/port   config.project/server-port
                   ::http/type   :jetty
                   ::http/join?  false})

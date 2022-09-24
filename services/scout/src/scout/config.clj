@@ -73,10 +73,10 @@
     (try
       (fn)
       (catch Exception e (println e)))
-    (Thread/sleep (* n (* 1000 60)))))
+    (Thread/sleep (* n (* 60 (* 1000 60))))))
 
 (defn start-worker
-  [worker-fn every-n-minutes]
-  (future (worker worker-fn every-n-minutes)))
+  [worker-fn every-n-hours]
+  (future (worker worker-fn every-n-hours)))
 
 (alter-var-root #'org.httpkit.client/*default-client* (fn [_] sni-client/default-client))
