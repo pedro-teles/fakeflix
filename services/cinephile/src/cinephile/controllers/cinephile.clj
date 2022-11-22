@@ -10,3 +10,9 @@
 (s/defn fetch-all-cinephiles :- [models.cinephile/Cinephile]
   []
   (db/fetch-all-cinephiles))
+
+(s/defn fetch-cinephile-id-by-email :- (s/maybe s/Uuid)
+  [email :- s/Str]
+  (-> email
+      db/fetch-by-email
+      :cinephile/customer-id))

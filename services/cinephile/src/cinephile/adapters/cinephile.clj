@@ -17,3 +17,7 @@
   [cinephiles :- [models.cinephile/Cinephile]]
   {:results (count cinephiles)
    :cinephiles cinephiles})
+
+(s/defn model->out-id :- out.cinephile/CinephileIdEnvelope
+  [customer-id :- s/Uuid]
+  {:customer-id customer-id})

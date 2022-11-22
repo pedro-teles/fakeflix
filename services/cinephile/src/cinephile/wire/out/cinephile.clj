@@ -9,3 +9,7 @@
                                   :cinephiles {:schema [Cinephile]}})
 
 (s/defschema CinephileEnvelope (schema/strict-schema cinephile-envelope-skeleton))
+
+(def cinephile-id-envelope-skeleton {:customer-id {:schema s/Uuid :required true}})
+
+(s/defschema CinephileIdEnvelope (schema/strict-schema cinephile-id-envelope-skeleton))
