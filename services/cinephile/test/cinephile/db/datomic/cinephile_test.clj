@@ -59,3 +59,39 @@
     (is (= 1
            (count (datomic/entities '[:find (pull ?cinephile [*])
                                       :where [?cinephile :cinephile/customer-id ?id]]))))))
+
+(deftest fetch-by-email-test
+  (testing "Should return a cinephile when the given email exists on datomic"
+    (test.datomic/with-datomic-test db.config/schemas)
+    (db.cinephile/insert! fixtures/model)
+
+    (is (match? {:cinephile/customer-id #uuid "c789839b-dc7d-48ce-ada2-283c915d2321"
+                 :cinephile/name        "Unit"
+                 :cinephile/last-name   "McTest"
+                 :cinephile/email       "unit.mctest@fakeflix.com"
+                 :cinephile/password    "123456"}
+          (db.cinephile/fetch-by-email "unit.mctest@fakeflix.com"))))
+
+  (testing "Should return nil when email doesn't exists on datomic"
+    (test.datomic/with-datomic-test db.config/schemas)
+    (db.cinephile/insert! fixtures/model)
+
+    (is (nil? (db.cinephile/fetch-by-email "unknown.email@fakeflix.com")))))
+
+(deftest fetch-by-email-and-password-test
+  (testing "Should return a cinephile when the given email and password exists on datomic"
+    (test.datomic/with-datomic-test db.config/schemas)
+    (db.cinephile/insert! fixtures/model)
+
+    (is (match? {:cinephile/customer-id #uuid "c789839b-dc7d-48ce-ada2-283c915d2321"
+                 :cinephile/name        "Unit"
+                 :cinephile/last-name   "McTest"
+                 :cinephile/email       "unit.mctest@fakeflix.com"
+                 :cinephile/password    "123456"}
+          (db.cinephile/fetch-by-email-and-password "unit.mctest@fakeflix.com" "123456"))))
+
+  (testing "Should return nil when the given email and password are incorrect"
+    (test.datomic/with-datomic-test db.config/schemas)
+    (db.cinephile/insert! fixtures/model)
+
+    (is (nil? (db.cinephile/fetch-by-email-and-password "unit.mctest@fakeflix.com" "testing")))))
