@@ -40,6 +40,6 @@
   (-> '[:find (pull ?cinephile [*])
         :in $ ?email ?password
         :where [?cinephile :cinephile/email ?email]
-               [?cinephile :cinephile/password ?password]]
-    (db/entities email password)
-    first))
+        [?cinephile :cinephile/password ?password]]
+      (db/entities email password)
+      first))

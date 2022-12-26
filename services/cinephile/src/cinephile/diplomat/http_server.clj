@@ -32,8 +32,11 @@
 (s/defn fetch-cinephile-by-email-and-password-handler
   [{:keys [request]}]
   (let [body (-> request
-               :json-params)
-        cinephile (controllers.cinephile/fetch-cinephile-by-email-and-password (:email body) (:password body))]))
+                 :json-params)
+        cinephile (controllers.cinephile/fetch-cinephile-by-email-and-password (:email body) (:password body))]
+    (when cinephile
+      {:status 200
+       :body (adapters.cinephile/model->out cinephile)})))
 
 (def routes
   (route/expand-routes

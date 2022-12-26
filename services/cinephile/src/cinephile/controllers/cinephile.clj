@@ -19,4 +19,5 @@
 
 (s/defn fetch-cinephile-by-email-and-password :- (s/maybe models.cinephile/Cinephile)
   [email :- s/Str
-   password :- s/Str])
+   password :- s/Str]
+  (db/fetch-by-email-and-password email password))

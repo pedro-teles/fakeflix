@@ -13,7 +13,7 @@
               :email       email
               :password    password})
 
-(s/defn model*->out :- out.cinephile/CinephileEnvelope
+(s/defn model*->out :- out.cinephile/AllCinephilesEnvelope
   [cinephiles :- [models.cinephile/Cinephile]]
   {:results (count cinephiles)
    :cinephiles cinephiles})
@@ -21,3 +21,10 @@
 (s/defn model->out-id :- out.cinephile/CinephileIdEnvelope
   [customer-id :- s/Uuid]
   {:customer-id customer-id})
+
+(s/defn model->out :- out.cinephile/CinephileEnvelope
+  [{:cinephile/keys [customer-id name last-name email]} :- models.cinephile/Cinephile]
+  {:customer-id customer-id
+   :name name
+   :last-name last-name
+   :email email})

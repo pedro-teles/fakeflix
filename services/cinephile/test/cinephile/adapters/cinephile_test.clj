@@ -19,3 +19,11 @@
                  :cinephiles [some?
                               some?]}
                 (adapters.cinephile/model*->out fixtures/model-list)))))
+
+(deftest model->out-test
+  (testing "Should adapt model->out correctly"
+    (is (match? {:customer-id #uuid "c789839b-dc7d-48ce-ada2-283c915d2321"
+                 :name        "Unit"
+                 :last-name   "McTest"
+                 :email       "unit.mctest@fakeflix.com"}
+                (adapters.cinephile/model->out fixtures/model)))))

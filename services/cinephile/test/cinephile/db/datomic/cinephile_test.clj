@@ -70,7 +70,7 @@
                  :cinephile/last-name   "McTest"
                  :cinephile/email       "unit.mctest@fakeflix.com"
                  :cinephile/password    "123456"}
-          (db.cinephile/fetch-by-email "unit.mctest@fakeflix.com"))))
+                (db.cinephile/fetch-by-email "unit.mctest@fakeflix.com"))))
 
   (testing "Should return nil when email doesn't exists on datomic"
     (test.datomic/with-datomic-test db.config/schemas)
@@ -88,7 +88,7 @@
                  :cinephile/last-name   "McTest"
                  :cinephile/email       "unit.mctest@fakeflix.com"
                  :cinephile/password    "123456"}
-          (db.cinephile/fetch-by-email-and-password "unit.mctest@fakeflix.com" "123456"))))
+                (db.cinephile/fetch-by-email-and-password "unit.mctest@fakeflix.com" "123456"))))
 
   (testing "Should return nil when the given email and password are incorrect"
     (test.datomic/with-datomic-test db.config/schemas)
