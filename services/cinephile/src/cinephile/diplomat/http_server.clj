@@ -29,6 +29,12 @@
        :body (adapters.cinephile/model->out-id cinephile-id)}
       {:status 204})))
 
+(s/defn fetch-cinephile-by-email-and-password-handler
+  [{:keys [request]}]
+  (let [body (-> request
+               :json-params)
+        cinephile (controllers.cinephile/fetch-cinephile-by-email-and-password (:email body) (:password body))]))
+
 (def routes
   (route/expand-routes
    #{["/api/version"
@@ -41,7 +47,11 @@
 
      ["/api/cinephile/find-by-email"
       :post (handle fetch-cinephile-id-by-email-handler)
-      :route-name :fetch-cinephile-id-by-email]}))
+      :route-name :fetch-cinephile-id-by-email]
+
+     ["/api/cinephile/find-by-email-and-password"
+      :post (handle fetch-cinephile-by-email-and-password-handler)
+      :route-name :fetch-cinephile-by-email-and-password]}))
 
 (def service-map {::http/routes routes
                   ::http/host   "0.0.0.0"

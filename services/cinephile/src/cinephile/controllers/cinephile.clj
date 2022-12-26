@@ -16,3 +16,7 @@
   (-> email
       db/fetch-by-email
       :cinephile/customer-id))
+
+(s/defn fetch-cinephile-by-email-and-password :- (s/maybe models.cinephile/Cinephile)
+  [email :- s/Str
+   password :- s/Str])
