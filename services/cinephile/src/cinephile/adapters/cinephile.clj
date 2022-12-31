@@ -1,5 +1,7 @@
 (ns cinephile.adapters.cinephile
-  (:require [cinephile.models.cinephile :as models.cinephile]
+  (:require [cinephile.logic.cinephile :as logic.cinephile]
+            [cinephile.models.cinephile :as models.cinephile]
+            [cinephile.wire.in.cinephile :as in.cinephile]
             [cinephile.wire.in.minion :as in.minion]
             [cinephile.wire.out.cinephile :as out.cinephile]
             [schema.core :as s])
@@ -13,9 +15,17 @@
               :email       email
               :password    password})
 
+(s/defn in->cinephile :- models.cinephile/Cinephile
+  [{:keys [name last-name email password]} :- in.cinephile/NewCinephileEnvelope]
+  #:cinephile{:customer-id (logic.cinephile/customer-id name last-name email)
+              :name        name
+              :last-name   last-name
+              :email       email
+              :password    password})
+
 (s/defn model*->out :- out.cinephile/AllCinephilesEnvelope
   [cinephiles :- [models.cinephile/Cinephile]]
-  {:results (count cinephiles)
+  {:results    (count cinephiles)
    :cinephiles cinephiles})
 
 (s/defn model->out-id :- out.cinephile/CinephileIdEnvelope
@@ -25,6 +35,6 @@
 (s/defn model->out :- out.cinephile/CinephileEnvelope
   [{:cinephile/keys [customer-id name last-name email]} :- models.cinephile/Cinephile]
   {:customer-id customer-id
-   :name name
-   :last-name last-name
-   :email email})
+   :name        name
+   :last-name   last-name
+   :email       email})

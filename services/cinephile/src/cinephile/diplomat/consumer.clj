@@ -9,6 +9,14 @@
   (-> message
       edn/read-string
       adapters.cinephile/minion->cinephile
-      controllers.cinephile/new-minion!))
+      controllers.cinephile/new-cinephile!))
 
-(def topics {:new-minion new-minion-handler!})
+(s/defn new-cinephile-handler!
+  [message]
+  (-> message
+      edn/read-string
+      adapters.cinephile/in->cinephile
+      controllers.cinephile/new-cinephile!))
+
+(def topics {:new-minion new-minion-handler!
+             :new-cinephile new-cinephile-handler!})

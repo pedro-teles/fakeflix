@@ -3,7 +3,7 @@
             [cinephile.models.cinephile :as models.cinephile]
             [schema.core :as s]))
 
-(s/defn new-minion!
+(s/defn new-cinephile!
   [cinephile :- models.cinephile/Cinephile]
   (db/insert-if-not-exists! cinephile))
 
