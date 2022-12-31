@@ -1,0 +1,3 @@
+{:application-name "motion-pictures"
+ :topics           {:producers [{:greeting "GREETING-KAFKA-TOPIC"}]
+                    :consumers [{:hello "HELLO-KAFKA-TOPIC"}]}}
