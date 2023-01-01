@@ -3,7 +3,6 @@
             [motion-pictures.adapters.cinephile :as adapters.cinephile]
             [motion-pictures.fixtures.cinephile :as fixtures]))
 
-
 (deftest cinephile-adapter-test
   (testing "Should adapt in->customer-id correctly"
     (is uuid?

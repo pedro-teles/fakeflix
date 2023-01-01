@@ -1,12 +1,11 @@
 (ns motion-pictures.diplomat.http-server
-  (:require
-   [io.pedestal.http.body-params :as body-params]
-   [motion-pictures.config.project :as config.project]
-   [motion-pictures.controllers.cinephile :as controllers.cinephile]
-   [motion-pictures.interceptors :refer [handle]]
-   [io.pedestal.http :as http]
-   [io.pedestal.http.route :as route]
-   [schema.core :as s]))
+  (:require [io.pedestal.http :as http]
+            [io.pedestal.http.body-params :as body-params]
+            [io.pedestal.http.route :as route]
+            [motion-pictures.config.project :as config.project]
+            [motion-pictures.controllers.cinephile :as controllers.cinephile]
+            [motion-pictures.interceptors :refer [handle]]
+            [schema.core :as s]))
 
 (s/defn api-version-handler
   [_]
@@ -16,8 +15,8 @@
 (s/defn validate-email-handler
   [{:keys [request]}]
   (let [email (-> request
-                 :json-params
-                 :email)
+                  :json-params
+                  :email)
         cinephile-id (controllers.cinephile/validate-cinephile-email email)]
     (if cinephile-id
       {:status 200}
@@ -41,5 +40,5 @@
 
 (def service
   (-> service-map
-    (http/default-interceptors)
-    (update ::http/interceptors conj (body-params/body-params))))
+      (http/default-interceptors)
+      (update ::http/interceptors conj (body-params/body-params))))

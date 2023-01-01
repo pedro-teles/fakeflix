@@ -1,7 +1,7 @@
 (ns motion-pictures.diplomat.http-client
   (:require [clojure.data.json :as json]
-            [motion-pictures.config.project :as config]
             [motion-pictures.adapters.cinephile :as adapters.cinephile]
+            [motion-pictures.config.project :as config]
             [org.httpkit.client :as http]
             [schema.core :as s]))
 
