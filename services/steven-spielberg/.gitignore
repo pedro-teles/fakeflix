@@ -173,4 +173,5 @@ Temporary Items
 .hgignore
 
 .clj-kondo/.cache/*
+.clj-kondo/marick/*
 .lsp/.cache/*
