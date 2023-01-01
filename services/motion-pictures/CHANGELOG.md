@@ -17,7 +17,7 @@ All notable changes to this project will be documented in this file. This change
 
 ## 0.1.0 - 2022-05-08
 ### Added
-- Files from the new motion-pictures.
+- Files from the new motion_pictures.
 - Widget maker public API - `make-widget-sync`.
 
 [Unreleased]: https://github.com/your-name/motion-pictures/compare/0.1.1...HEAD

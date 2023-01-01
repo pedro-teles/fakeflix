@@ -1,7 +1,6 @@
 (ns motion-pictures.diplomat.http-server
   (:require [motion-pictures.adapters.bored-activity :as a.bored-activity]
             [motion-pictures.config.project :as config.project]
-            [motion-pictures.controllers.bored-activity :as c.bored-activity]
             [motion-pictures.diplomat.producer :as producer]
             [motion-pictures.interceptors :refer [handle]]
             [io.pedestal.http :as http]
@@ -12,18 +11,6 @@
   [_]
   {:status 200
    :body   {:version "0.0.1"}})
-
-(s/defn bored-activity-handler
-  [_]
-  (let [bored-activity (c.bored-activity/tell-me-bored-activity!)]
-    {:status 200
-     :body (a.bored-activity/internal->out bored-activity)}))
-
-(s/defn all-bored-activity-handler
-  [_]
-  (let [activities (c.bored-activity/all-bored-activities!)]
-    {:status 200
-     :body (a.bored-activity/internal->out* activities)}))
 
 (s/defn kafka-handler
   [_]
@@ -36,14 +23,6 @@
    #{["/api/version"
       :get (handle api-version-handler)
       :route-name :version]
-
-     ["/api/bored-activity"
-      :get (handle bored-activity-handler)
-      :route-name :bored-activities]
-
-     ["/api/bored-activity/all"
-      :get (handle all-bored-activity-handler)
-      :route-name :all-bored-activities]
 
      ["/api/kafka"
       :get (handle kafka-handler)

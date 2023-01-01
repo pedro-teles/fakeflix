@@ -1,4 +1,4 @@
-# motion-pictures
+# motion_pictures
 
 A Clojure library designed to ... well, that part is up to you.
 
