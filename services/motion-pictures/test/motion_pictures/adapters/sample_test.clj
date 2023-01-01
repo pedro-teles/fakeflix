@@ -1,19 +1,13 @@
 (ns motion-pictures.adapters.sample-test
   (:require [clojure.test :refer [deftest is testing]]
-            [motion-pictures.adapters.bored-activity :as a.bored-activity]
-            [motion-pictures.fixtures.sample-fixtures :as fixtures]))
+            [motion-pictures.adapters.cinephile :as adapters.cinephile]
+            [motion-pictures.fixtures.cinephile :as fixtures]))
 
-(def internal-id #uuid "c9f317a4-9647-467f-a941-71d0fa922263")
 
-(deftest bored-activity-adapter-test
-  (testing "Should adapt in->internal correctly"
-    (is (= fixtures/internal-bored-activity
-           (a.bored-activity/in->internal fixtures/in-bored-activity))))
+(deftest cinephile-adapter-test
+  (testing "Should adapt in->customer-id correctly"
+    (is uuid?
+        (adapters.cinephile/in->customer-id fixtures/in-find-cinephile-by-email))
 
-  (testing "Should adapt internal-data->internal correctly"
-    (is (= fixtures/bored-activity
-           (a.bored-activity/internal-data->internal internal-id fixtures/internal-bored-activity))))
-
-  (testing "Should adapter internal->out correctly"
-    (is (= fixtures/out-bored-activity
-           (a.bored-activity/internal->out fixtures/bored-activity)))))
+    (is nil?
+        (adapters.cinephile/in->customer-id nil))))

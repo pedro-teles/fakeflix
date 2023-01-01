@@ -1,6 +1,5 @@
 (ns motion-pictures.diplomat.http-server
-  (:require [motion-pictures.adapters.bored-activity :as a.bored-activity]
-            [motion-pictures.config.project :as config.project]
+  (:require [motion-pictures.config.project :as config.project]
             [motion-pictures.diplomat.producer :as producer]
             [motion-pictures.interceptors :refer [handle]]
             [io.pedestal.http :as http]
