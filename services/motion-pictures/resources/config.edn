@@ -1,0 +1,4 @@
+{:application-name "motion-pictures"
+ :topics           {:producers [{:new-cinephile "USER.NEW-CINEPHILE"}]
+                    :consumers []}
+ :services         {:cinephile "http://localhost:8085"}}

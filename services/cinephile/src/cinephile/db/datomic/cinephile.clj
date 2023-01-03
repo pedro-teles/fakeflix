@@ -25,3 +25,21 @@
   []
   (db/entities '[:find (pull ?cinephile [*])
                  :where [?cinephile :cinephile/customer-id ?id]]))
+
+(s/defn fetch-by-email :- (s/maybe models.cinephile/Cinephile)
+  [email :- s/Str]
+  (-> '[:find (pull ?cinephile [*])
+        :in $ ?email
+        :where [?cinephile :cinephile/email ?email]]
+      (db/entities email)
+      first))
+
+(s/defn fetch-by-email-and-password :- (s/maybe models.cinephile/Cinephile)
+  [email :- s/Str
+   password :- s/Str]
+  (-> '[:find (pull ?cinephile [*])
+        :in $ ?email ?password
+        :where [?cinephile :cinephile/email ?email]
+        [?cinephile :cinephile/password ?password]]
+      (db/entities email password)
+      first))

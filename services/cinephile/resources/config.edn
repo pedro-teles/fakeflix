@@ -1,3 +1,4 @@
 {:application-name "cinephile"
  :topics           {:producers []
-                    :consumers [{:new-minion "USER.NEW-MINION"}]}}
+                    :consumers [{:new-minion "USER.NEW-MINION"}
+                                {:new-cinephile "USER.NEW-CINEPHILE"}]}}
