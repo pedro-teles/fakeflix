@@ -2,6 +2,7 @@
   (:require [io.pedestal.http :as http]
             [io.pedestal.http.body-params :as body-params]
             [io.pedestal.http.route :as route]
+            [motion-pictures.adapters.cinephile :as adapters.cinephile]
             [motion-pictures.config.project :as config.project]
             [motion-pictures.controllers.cinephile :as controllers.cinephile]
             [motion-pictures.interceptors :refer [handle]]
@@ -22,6 +23,17 @@
       {:status 200}
       {:status 204})))
 
+(s/defn register-cinephile-handler
+  [{:keys [request]}]
+  (let [body (-> request
+                 :json-params)
+        cinephile-registered? (-> body
+                                  adapters.cinephile/in->model
+                                  controllers.cinephile/register-cinephile!)]
+    (if cinephile-registered?
+      {:status 201}
+      {:status 409})))
+
 (def routes
   (route/expand-routes
    #{["/api/version"
@@ -30,7 +42,11 @@
 
      ["/api/cinephile/validate-email"
       :post (handle validate-email-handler)
-      :route-name :validate-email]}))
+      :route-name :validate-email]
+
+     ["/api/cinephile/register"
+      :put (handle register-cinephile-handler)
+      :route-name :register-cinephile]}))
 
 (def service-map {::http/routes routes
                   ::http/host   "0.0.0.0"
