@@ -15,5 +15,4 @@
     (if-not is-registered?
       (do
         (producer/produce-new-cinephile! cinephile)
-        cinephile)
-      nil)))
+        cinephile))))
