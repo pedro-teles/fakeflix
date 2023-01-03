@@ -1,5 +1,6 @@
 (ns motion-pictures.adapters.cinephile
-  (:require [motion-pictures.wire.in.cinephile :as in.cinephile]
+  (:require [motion-pictures.models.cinephile :as models.cinephile]
+            [motion-pictures.wire.in.cinephile :as in.cinephile]
             [motion-pictures.wire.out.cinephile :as out.cinephile]
             [schema.core :as s]))
 
@@ -16,9 +17,9 @@
                           :password]))
 
 (s/defn model->out :- out.cinephile/NewCinephileEnvelope
-  [cinephile :- motion-pictures.models.cinephile/CinephileEnvelope]
+  [cinephile :- models.cinephile/CinephileEnvelope]
   (common-cinephile-attributes cinephile))
 
-(s/defn in->model :- motion-pictures.models.cinephile/CinephileEnvelope
+(s/defn in->model :- models.cinephile/CinephileEnvelope
   [cinephile :- in.cinephile/NewCinephileEnvelope]
   (common-cinephile-attributes cinephile))
