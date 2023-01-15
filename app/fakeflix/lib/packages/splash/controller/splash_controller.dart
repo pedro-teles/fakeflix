@@ -22,7 +22,9 @@ class SplashController extends StatelessWidget {
 
             return const SplashScreen();
           case Loaded:
-            return const WelcomeScreen();
+            final screenWidgets = (state as Loaded).screenWidgets;
+
+            return WelcomeScreen(screenWidgets);
           case Error:
             return const Text('Error');
         }
