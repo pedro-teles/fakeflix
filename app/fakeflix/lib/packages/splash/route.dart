@@ -1,11 +1,12 @@
-import 'package:fakeflix/packages/splash/presentation/SplashScreen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:nuvigator/next.dart';
+
+import 'controller/splash_controller.dart';
 
 class SplashRoute extends NuRoute {
   @override
   Widget build(BuildContext context, NuRouteSettings<Object> settings) {
-    return const SplashScreen();
+    return SplashController();
   }
 
   @override
